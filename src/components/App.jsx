@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import Modal from './Modal';
-import { OpenModalBtn } from './App.styled';
+import { OpenModalBtn, Title, Text, CloseModalBtn } from './App.styled';
 
 class App extends Component {
   state = {
@@ -41,8 +41,8 @@ class App extends Component {
         </OpenModalBtn>
         {showModal && (
           <Modal>
-            <h1>Title</h1>
-            <p>
+            <Title>Title</Title>
+            <Text>
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste
               minima debitis quas voluptates nulla aliquid nobis, nisi facilis
               necessitatibus consectetur enim quisquam animi recusandae tempore
@@ -51,21 +51,12 @@ class App extends Component {
               corrupti omnis placeat iusto a ratione tenetur ipsum incidunt.
               Perferendis consectetur repellendus laudantium libero. Minima
               omnis recusandae maiores possimus corrupti maxime veritatis sunt.
-            </p>
-            <button type="button" onClick={toggleModal}>
+            </Text>
+            <CloseModalBtn type="button" onClick={toggleModal}>
               Close Modal
-            </button>
+            </CloseModalBtn>
           </Modal>
         )}
-        <div>
-          <ul>
-            <li>A</li>
-            <li>B</li>
-            <li>C</li>
-            <li>D</li>
-            <li>E</li>
-          </ul>
-        </div>
       </div>
     );
   }
