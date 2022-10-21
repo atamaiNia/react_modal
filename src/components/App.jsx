@@ -4,43 +4,23 @@ import { OpenModalBtn, Title, Text, CloseModalBtn } from './App.styled';
 
 class App extends Component {
   state = {
-    showModal: true,
+    showModal: false,
   };
-
-  componentDidMount() {
-    console.log('App componentDidMount');
-
-    const todos = localStorage.getItem('todos');
-    const parsedTodos = JSON.parse(todos);
-
-    if (parsedTodos) {
-      this.setState({ todos: parsedTodos });
-    }
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    console.log('App componentDidUpdate');
-
-    if (this.state.todos !== prevState.todos) {
-      console.log('Обновилося поле todos, записую todos в сховище');
-
-      localStorage.setItem('todos', JSON.stringify(this.state.todos));
-    }
-  }
 
   toggleModal = () => {
     this.setState(({ showModal }) => ({ showModal: !showModal }));
+    console.log(this.state.showModal);
   };
   render() {
     const { showModal } = this.state;
-    const { toggleModal } = this;
+    // const { toggleModal } = this;
     return (
       <div>
-        <OpenModalBtn type="button" onClick={toggleModal}>
+        <OpenModalBtn type="button" onClick={this.toggleModal}>
           Open Modal
         </OpenModalBtn>
         {showModal && (
-          <Modal>
+          <Modal onClose={this.toggleModal}>
             <Title>Title</Title>
             <Text>
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste
@@ -52,7 +32,7 @@ class App extends Component {
               Perferendis consectetur repellendus laudantium libero. Minima
               omnis recusandae maiores possimus corrupti maxime veritatis sunt.
             </Text>
-            <CloseModalBtn type="button" onClick={toggleModal}>
+            <CloseModalBtn type="button" onClick={this.toggleModal}>
               Close Modal
             </CloseModalBtn>
           </Modal>

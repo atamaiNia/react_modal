@@ -7,6 +7,14 @@ const modalRoot = document.querySelector('#modal-root');
 export default class Modal extends Component {
   componentDidMount() {
     console.log('Modal componentDidMount');
+
+    window.addEventListener('keydown', e => {
+      if (e.code === 'Escape') {
+        console.log(`Натиснули ${e.code}, необхідно закрити модалку`);
+
+        this.props.onClose();
+      }
+    });
   }
 
   componentWillUnmount() {
