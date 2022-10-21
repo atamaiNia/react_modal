@@ -13,14 +13,14 @@ class App extends Component {
   };
   render() {
     const { showModal } = this.state;
-    // const { toggleModal } = this;
+    const { toggleModal } = this;
     return (
       <div>
-        <OpenModalBtn type="button" onClick={this.toggleModal}>
+        <OpenModalBtn type="button" onClick={toggleModal}>
           Open Modal
         </OpenModalBtn>
         {showModal && (
-          <Modal onClose={this.toggleModal}>
+          <Modal onClose={toggleModal}>
             <Title>Title</Title>
             <Text>
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste
@@ -32,7 +32,7 @@ class App extends Component {
               Perferendis consectetur repellendus laudantium libero. Minima
               omnis recusandae maiores possimus corrupti maxime veritatis sunt.
             </Text>
-            <CloseModalBtn type="button" onClick={this.toggleModal}>
+            <CloseModalBtn type="button" onClick={toggleModal}>
               Close Modal
             </CloseModalBtn>
           </Modal>
